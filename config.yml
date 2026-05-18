@@ -1,0 +1,68 @@
+#--------------------- DB ----------------------
+# DB Connection with the uri (host)
+client: "mongodb://localhost:27017"
+
+# db name
+db: "AIoT_Gesture_DB"
+
+# db collection
+col: "Gestures"
+
+
+#--------------------- Dataframe Instantiation ----------------------
+# Αντιστοίχιση στηλών από το CSV στη MongoDB
+# Προσοχή: Τα ονόματα στο 'order' πρέπει να είναι ακριβώς όπως στο CSV σου
+order: ["x-axis (g)", "y-axis (g)", "z-axis (g)", "x-axis (deg/s)", "y-axis (deg/s)", "z-axis (deg/s)"]
+rename: ["acc_x", "acc_y", "acc_z", "gyr_x", "gyr_y", "gyr_z"]
+
+
+#--------------------- Dataset Local Storage ----------------------
+# dataset location - Βάλε τον φάκελο με τα MERGED αρχεία
+data_path: "merged/"
+
+# Μπορείς να βάλεις τη διαδρομή ενός αρχείου για δοκιμή, π.χ.:
+single_instance_path: "merged/scroll_down_mitsos_MERGED.csv"
+
+
+#--------------------- Data Engineering ----------------------
+# sliding window algorithm parameters (ws = window size σε δείγματα)
+# Για 100Hz, ws: 200 σημαίνει παράθυρο 2 δευτερολέπτων
+sliding_window:
+  ws: 200
+  overlap: 0.5
+  w_type: "hann"
+  w_center: True
+  print_stats: True
+
+# window to handle for visualization purposes
+x_number: 2
+
+# filtering parameterization (Low-pass filter για καθαρισμό θορύβου)
+filter:
+  order: 4
+  wn: 5.0 # Cut-off frequency στα 5Hz είναι ιδανική για ανθρώπινη κίνηση
+  type: "lowpass"
+
+
+#--------------------- Data Preparation ----------------------
+# Dimensionality reduction
+PCA:
+  n_comp: 0.95 # Διατήρηση του 95% της διακύμανσης
+
+
+#--------------------- Learning ----------------------
+# Classifier - Support Vector Classifier (SVC)
+classifier:
+  SVC:
+    C: 10.0
+    kernel: "rbf"
+    gamma: "scale"
+
+# Parameter Grid for Fine-tuning
+fine_tune:
+  param_grid: [
+    {'C': [1, 10, 100], 'kernel': ['linear']},
+    {'C': [1, 10, 100], 'gamma': [0.01, 0.001], 'kernel': ['rbf']},
+   ]
+  cv: 5
+  verbose: 1
