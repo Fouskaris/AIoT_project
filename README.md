@@ -140,8 +140,8 @@ Under the strict real-world scenario where the test subject is completely unknow
 
 #### Performance on Mixed Users 
 To ensure our algorithms were not fundamentally flawed, we conducted a secondary experiment by shuffling all users' data before the Train/Test split. Under this condition, the models learned the specific movement baseline of every user:
-* The **Raw Time-Series** accuracy surged from ~20% to **~[94]%**.
-* The **Feature Engineering & PCA** accuracy surged from ~27% to **~[88]%**.
+* The **Raw Time-Series** accuracy surged from ~20% to ~[94]%.
+* The **Feature Engineering & PCA** accuracy surged from ~27% to ~[88]%.
 
 **Overall Takeaway:**
 This massive discrepancy in accuracy perfectly highlights the core challenge of Human Gesture Recognition using wrist-worn IMUs: **Inter-Subject Variability**. Our ML pipeline and optimized algorithms (SVM & Random Forest) are highly capable of classifying finger-level micro-gestures (>80% accuracy) once exposed to a user's specific biomechanical style. The initial low accuracy is strictly a physiological limitation—demonstrating how different human anatomies execute the same exact micro-movement.
