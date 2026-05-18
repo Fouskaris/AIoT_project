@@ -90,8 +90,8 @@ Trained on this mixed dataset, where the models were exposed to the movement bas
 * The **SVM** achieved an accuracy of **[87]%**.
 * The **Random Forest** achieved an accuracy of **[94]%**.
 
-![Confusion Matrix - Raw Mixed Data (SVM)](img/outpu15.png)
-![Confusion Matrix - Raw Mixed Data (Random Forest)](img/outpu16.png)
+![Confusion Matrix - Raw Mixed Data (SVM)](img/output15.png)
+![Confusion Matrix - Raw Mixed Data (Random Forest)](img/output16.png)
 
 **Conclusion:** The massive gap in accuracy between the two splits perfectly illustrates **Inter-Subject Variability**. The algorithms are perfectly capable of classifying the 1,200 raw features when they are exposed to the specific movement baseline of the user during training. However, because the kinetic signal registered by the wrist-worn IMU during finger-driven micro-gestures is incredibly weak, models fed with *raw* spatial coordinates cannot generalize across unseen human anatomies.
 
