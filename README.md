@@ -4,9 +4,9 @@
 
 ## About this Project
  Team Members: 
-	Kostantinos Bakasetas, up1100632@ac.upatras.gr ,6972100459
-	Alexios Iosif Fouskaris, up1100747@ac.upatras.gr ,6909312176
-	Dimitrios Papadatos, up1100663@ac.upatras.gr , 6934779188
+	Kostantinos Bakasetas, up1100632@ac.upatras.gr ,
+	Alexios Iosif Fouskaris, up1100747@ac.upatras.gr ,
+	Dimitrios Papadatos, up1100663@ac.upatras.gr 
 
 ## Gestures Collection Procedure
 For the data collection process, we utilized the **Mbientlab MetaMotionR** research sensor kit (with the Bosch BMI160 IMU) worn on the left wrist using the provided wristband. Data was collected using the MetaBase application at a sampling frequency of 100Hz.
